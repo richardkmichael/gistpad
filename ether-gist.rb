@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'haml'
 
-require_relative 'gist'
+require_relative 'lib/gist'
 
 # before
 #   github oauth
@@ -27,6 +27,7 @@ end
 
 private
 
+# FIXME: This should be moved to client-side JavaScript.
 def gists_for_username( username )
   response = Typhoeus::Request.get("#{Gist::GITHUB_API_URL}/users/#{username}/gists",
                                    :headers => { :Accept => Gist::GITHUB_MIMETYPE })
@@ -40,8 +41,17 @@ __END__
 %html
   %head
     %title EtherGist!
+    %link{ :href => '/github.css', :type => 'text/css', :rel => 'stylesheet' }
   %body
-    = yield
+    .etherpad
+      %iframe{:frameborder => "0",
+              :scrolling => "no",
+              :height => '850',
+              :width => '650',
+              :src => "/choose-a-gist.png"} Your browser does not support iframes.
+      -# %img{ :src => '/choose-a-gist.png' }
+
+    .gists= yield
 
 
 @@ gist
@@ -56,12 +66,14 @@ __END__
 %ul.gists
   - gists.each do |gist|
     %li
+      = gist.class
       %a{ :href => "https://gist.github.com/#{gist['id']}" }= "gist: #{gist['id']}"
+      -# %a{ :href => "https://gist.github.com/123456" } gist: 123456
       %span.description= gist['description']
       %small
         created
         %span.date
-          %time.js-relative-date{ :datetime => "gist['updated_at']", :title => "date['updated_at']" } "#{gist['updated_at']}"
+          %time.js-relative-date{ :datetime => gist['updated_at'], :title => gist['updated_at'] }= gist['updated_at']
 
 %h3 Your Recent Starred Gists
 %ul.gists
