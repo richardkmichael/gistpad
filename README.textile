@@ -1,0 +1,14 @@
+h1. EtherGist
+
+Retreive a Gist
+  -GitHub API for Gist
+    -raw URL
+
+Populate etherpad with the content.
+  -raw content
+
+Obey syntax highlighting of Gist type?
+
+GitHub oauth
+  -allow post back
+  -allow private

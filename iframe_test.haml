@@ -1,0 +1,124 @@
+%html
+  %head
+    %title Testing iFrames
+    :css
+      div.gists {
+        min-height: 100%;
+        height: auto !important;
+        margin: 0pt auto -8.6em;
+        background: url('http://gists.github.com/images/gist/header/background-v2.png')
+                    repeat-x scroll 0pt -17px white;
+        text-align: left;
+      }
+      html, body { color: black; }
+      body * { line-height: 1.4em; }
+      body { font: 13.34px helvetica,arial,freesans,clean,sans-serif; }
+
+      h3 {
+        margin: 1em 0pt 0.5em;
+        border-bottom: 1px solid rgb(221, 221, 221);
+      }
+
+      * { padding: 0pt; }
+      a:hover { text-decoration: underline; }
+      a {
+        color: rgb(65, 131, 196);
+        margin: 0pt;
+      }
+
+      ul.gists li {
+        list-style-type: none;
+        margin: 0pt;
+        padding: 3px 0pt 3px 20px;
+        font-size: 12px;
+        color: rgb(153, 153, 153);
+        border-bottom: 1px solid rgb(221, 221, 221);
+        background: url('http://gists.github.com/images/gist/gist/paste.png')
+                    no-repeat scroll 0pt 4px transparent;
+      }
+
+      ul.gists small {
+        display: block;
+        font-size: 11px;
+        color: rgb(102, 102, 102);
+      }
+
+  %body
+    #iframe
+      %iframe{:frameborder => "0", :scrolling => "no", :src => "http://www.wikipedia.com"}
+        Your browser does not support iframes.
+    #gists
+      %h3 Your Most Recent Gists
+      %ul.gists
+        %li
+          %a{:href => "/1718696"} gist: 1718696
+          %span.description
+          %small
+            created
+            %span.date
+              %time.js-relative-date{:datetime => "2012-02-01T11:10:10-08:00", :title => "2012-02-01 11:10:10"} February 01, 2012
+        %li
+          %a{:href => "/1718010"} gist: 1718010
+          %span.description
+          %small
+            created
+            %span.date
+              %time.js-relative-date{:datetime => "2012-02-01T08:53:54-08:00", :title => "2012-02-01 08:53:54"} February 01, 2012
+        %li
+          %a{:href => "/281158bc90c376882ba0"} gist: 281158...
+          %span.description Etherpad w/ Franck
+          %small
+            created
+            %span.date
+              %time.js-relative-date{:datetime => "2012-01-12T15:07:22-08:00", :title => "2012-01-12 15:07:22"} January 12, 2012
+        %li
+          %a{:href => "/1579831"} gist: 1579831
+          %span.description
+          %small
+            created
+            %span.date
+              %time.js-relative-date{:datetime => "2012-01-08T13:50:01-08:00", :title => "2012-01-08 13:50:01"} January 08, 2012
+        %li
+          %a{:href => "/81ccb25f7509d66afa4c"} gist: 81ccb2...
+          %span.description MacOS installation and configuration.
+          %small
+            created
+            %span.date
+              %time.js-relative-date{:datetime => "2011-10-13T11:03:14-07:00", :title => "2011-10-13 11:03:14"} October 13, 2011
+      %h3 Your Recent Starred Gists
+      %ul.gists
+        %li
+          %a{:href => "/dbcd90016aba8e6d0f96"} gist: dbcd90...
+          %span.description
+          %small
+            created
+            %span.date
+              %time.js-relative-date{:datetime => "2012-01-28T16:28:49-08:00", :title => "2012-01-28 16:28:49"} January 28, 2012
+        %li
+          %a{:href => "/26e66f999c03e48350ca"} gist: 26e66f...
+          %span.description crappy_solution_to_emulate_each_else
+          %small
+            created
+            %span.date
+              %time.js-relative-date{:datetime => "2011-07-20T08:24:35-07:00", :title => "2011-07-20 08:24:35"} July 20, 2011
+        %li
+          %a{:href => "/37a19d60e850bdd98d6d"} gist: 37a19d...
+          %span.description Passenger standalone blow up when --pid-file with a socket.
+          %small
+            created
+            %span.date
+              %time.js-relative-date{:datetime => "2011-06-07T09:02:34-07:00", :title => "2011-06-07 09:02:34"} June 07, 2011
+        %li
+          %a{:href => "/f3a6e2c320785a5dc81f"} gist: f3a6e2...
+          %span.description MiniTest fast fail, ripped from Jo Liss at http://opinionated-programmer.com/2010/12/minitest-test-unit-immediate-backtrace-and-exit-on-failure/
+          %small
+            created
+            %span.date
+              %time.js-relative-date{:datetime => "2011-03-05T13:25:00-08:00", :title => "2011-03-05 13:25:00"} March 05, 2011
+        %li
+          %a{:href => "/821558"} gist: 821558
+          %span.description Use minitest/spec with Rails 3
+          %small
+            created
+            %span.date
+              %time.js-relative-date{:datetime => "2011-02-10T15:04:33-08:00", :title => "2011-02-10 15:04:33"} February 10, 2011

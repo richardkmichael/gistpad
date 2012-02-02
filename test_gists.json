@@ -1,0 +1,265 @@
+HTTP/1.1 200 OK
+Server: nginx/1.0.4
+Date: Thu, 02 Feb 2012 04:44:11 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Status: 200 OK
+X-RateLimit-Limit: 5000
+ETag: "9899f856d318057ea2ee1ea8ac89b1d5"
+X-RateLimit-Remaining: 4982
+Content-Length: 9714
+
+[
+  {
+    "url": "https://api.github.com/gists/1718696",
+    "description": null,
+    "public": true,
+    "files": {
+      "test-openssl.rb": {
+        "type": "application/ruby",
+        "raw_url": "https://gist.github.com/raw/1718696/7d95f5229e40e0b0f8de8f6c8338b7287f2a8d99/test-openssl.rb",
+        "size": 178,
+        "filename": "test-openssl.rb",
+        "language": "Ruby"
+      }
+    },
+    "git_pull_url": "git://gist.github.com/1718696.git",
+    "git_push_url": "git@gist.github.com:1718696.git",
+    "comments": 0,
+    "updated_at": "2012-02-01T19:10:10Z",
+    "user": {
+      "url": "https://api.github.com/users/richardkmichael",
+      "gravatar_id": "5eba6ac30f44c1cb14256848f95aecf5",
+      "login": "richardkmichael",
+      "avatar_url": "https://secure.gravatar.com/avatar/5eba6ac30f44c1cb14256848f95aecf5?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png",
+      "id": 364390
+    },
+    "html_url": "https://gist.github.com/1718696",
+    "id": "1718696",
+    "created_at": "2012-02-01T19:10:10Z"
+  },
+  {
+    "url": "https://api.github.com/gists/1718010",
+    "description": null,
+    "public": true,
+    "files": {
+      "resolv_extension.rb": {
+        "type": "application/ruby",
+        "raw_url": "https://gist.github.com/raw/1718010/db20c50e0da8669348c909359793e5a41f02719f/resolv_extension.rb",
+        "size": 259,
+        "filename": "resolv_extension.rb",
+        "language": "Ruby"
+      }
+    },
+    "git_pull_url": "git://gist.github.com/1718010.git",
+    "git_push_url": "git@gist.github.com:1718010.git",
+    "comments": 0,
+    "updated_at": "2012-02-01T16:53:54Z",
+    "user": {
+      "url": "https://api.github.com/users/richardkmichael",
+      "gravatar_id": "5eba6ac30f44c1cb14256848f95aecf5",
+      "login": "richardkmichael",
+      "avatar_url": "https://secure.gravatar.com/avatar/5eba6ac30f44c1cb14256848f95aecf5?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png",
+      "id": 364390
+    },
+    "html_url": "https://gist.github.com/1718010",
+    "id": "1718010",
+    "created_at": "2012-02-01T16:53:54Z"
+  },
+  {
+    "url": "https://api.github.com/gists/1579831",
+    "description": null,
+    "public": true,
+    "files": {
+      "mad-libs.rb": {
+        "type": "application/ruby",
+        "raw_url": "https://gist.github.com/raw/1579831/c82fb0e569b7523a40fe97d65ba371198d150744/mad-libs.rb",
+        "size": 246,
+        "filename": "mad-libs.rb",
+        "language": "Ruby"
+      }
+    },
+    "git_pull_url": "git://gist.github.com/1579831.git",
+    "git_push_url": "git@gist.github.com:1579831.git",
+    "comments": 1,
+    "updated_at": "2012-01-08T21:50:01Z",
+    "user": {
+      "url": "https://api.github.com/users/richardkmichael",
+      "gravatar_id": "5eba6ac30f44c1cb14256848f95aecf5",
+      "login": "richardkmichael",
+      "avatar_url": "https://secure.gravatar.com/avatar/5eba6ac30f44c1cb14256848f95aecf5?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png",
+      "id": 364390
+    },
+    "html_url": "https://gist.github.com/1579831",
+    "id": "1579831",
+    "created_at": "2012-01-08T21:50:01Z"
+  },
+  {
+    "url": "https://api.github.com/gists/1218770",
+    "description": null,
+    "public": true,
+    "files": {
+      ".vimrc.local": {
+        "type": "text/plain",
+        "raw_url": "https://gist.github.com/raw/1218770/9af414277ec8569ac87a50d254e00765716f9878/.vimrc.local",
+        "size": 112,
+        "filename": ".vimrc.local",
+        "language": null
+      }
+    },
+    "git_pull_url": "git://gist.github.com/1218770.git",
+    "git_push_url": "git@gist.github.com:1218770.git",
+    "comments": 0,
+    "updated_at": "2011-09-15T07:50:54Z",
+    "user": {
+      "url": "https://api.github.com/users/richardkmichael",
+      "gravatar_id": "5eba6ac30f44c1cb14256848f95aecf5",
+      "login": "richardkmichael",
+      "avatar_url": "https://secure.gravatar.com/avatar/5eba6ac30f44c1cb14256848f95aecf5?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png",
+      "id": 364390
+    },
+    "html_url": "https://gist.github.com/1218770",
+    "id": "1218770",
+    "created_at": "2011-09-15T07:50:54Z"
+  },
+  {
+    "url": "https://api.github.com/gists/1218769",
+    "description": null,
+    "public": true,
+    "files": {
+      ".vimrc.local": {
+        "type": "text/plain",
+        "raw_url": "https://gist.github.com/raw/1218769/350ccb2d5cb8b4f9b7dc9b9cbf5f2baadb1dc218/.vimrc.local",
+        "size": 49,
+        "filename": ".vimrc.local",
+        "language": null
+      }
+    },
+    "git_pull_url": "git://gist.github.com/1218769.git",
+    "git_push_url": "git@gist.github.com:1218769.git",
+    "comments": 0,
+    "updated_at": "2011-09-15T07:50:08Z",
+    "user": {
+      "url": "https://api.github.com/users/richardkmichael",
+      "gravatar_id": "5eba6ac30f44c1cb14256848f95aecf5",
+      "login": "richardkmichael",
+      "avatar_url": "https://secure.gravatar.com/avatar/5eba6ac30f44c1cb14256848f95aecf5?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png",
+      "id": 364390
+    },
+    "html_url": "https://gist.github.com/1218769",
+    "id": "1218769",
+    "created_at": "2011-09-15T07:50:08Z"
+  },
+  {
+    "url": "https://api.github.com/gists/1218741",
+    "description": null,
+    "public": true,
+    "files": {
+      "project.rb": {
+        "type": "application/ruby",
+        "raw_url": "https://gist.github.com/raw/1218741/f90fa31fece6e298be78cb7a0a3e631402a1117e/project.rb",
+        "size": 36,
+        "filename": "project.rb",
+        "language": "Ruby"
+      }
+    },
+    "git_pull_url": "git://gist.github.com/1218741.git",
+    "git_push_url": "git@gist.github.com:1218741.git",
+    "comments": 0,
+    "updated_at": "2011-09-15T07:32:04Z",
+    "user": {
+      "url": "https://api.github.com/users/richardkmichael",
+      "gravatar_id": "5eba6ac30f44c1cb14256848f95aecf5",
+      "login": "richardkmichael",
+      "avatar_url": "https://secure.gravatar.com/avatar/5eba6ac30f44c1cb14256848f95aecf5?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png",
+      "id": 364390
+    },
+    "html_url": "https://gist.github.com/1218741",
+    "id": "1218741",
+    "created_at": "2011-09-15T07:32:04Z"
+  },
+  {
+    "url": "https://api.github.com/gists/1122623",
+    "description": "Where has ActionController::Dispatcher gone in a Rails 3.1 console?",
+    "public": true,
+    "files": {
+      "gistfile1.txt": {
+        "type": "text/plain",
+        "raw_url": "https://gist.github.com/raw/1122623/cc6961a905525def7e556d5943bb945f502fa0e0/gistfile1.txt",
+        "size": 2060,
+        "filename": "gistfile1.txt",
+        "language": "Text"
+      }
+    },
+    "git_pull_url": "git://gist.github.com/1122623.git",
+    "git_push_url": "git@gist.github.com:1122623.git",
+    "comments": 2,
+    "updated_at": "2011-08-03T13:27:21Z",
+    "user": {
+      "url": "https://api.github.com/users/richardkmichael",
+      "gravatar_id": "5eba6ac30f44c1cb14256848f95aecf5",
+      "login": "richardkmichael",
+      "avatar_url": "https://secure.gravatar.com/avatar/5eba6ac30f44c1cb14256848f95aecf5?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png",
+      "id": 364390
+    },
+    "html_url": "https://gist.github.com/1122623",
+    "id": "1122623",
+    "created_at": "2011-08-03T13:27:21Z"
+  },
+  {
+    "url": "https://api.github.com/gists/950389",
+    "description": "Loading local variables into an IRB session: matz vs. rbx",
+    "public": true,
+    "files": {
+      "gistfile1.txt": {
+        "type": "text/plain",
+        "raw_url": "https://gist.github.com/raw/950389/ec136ec8a788a2aeb60d01ba4238d0fb9f15c7c8/gistfile1.txt",
+        "size": 381,
+        "filename": "gistfile1.txt",
+        "language": "Text"
+      }
+    },
+    "git_pull_url": "git://gist.github.com/950389.git",
+    "git_push_url": "git@gist.github.com:950389.git",
+    "comments": 1,
+    "updated_at": "2011-05-01T10:11:34Z",
+    "user": {
+      "url": "https://api.github.com/users/richardkmichael",
+      "gravatar_id": "5eba6ac30f44c1cb14256848f95aecf5",
+      "login": "richardkmichael",
+      "avatar_url": "https://secure.gravatar.com/avatar/5eba6ac30f44c1cb14256848f95aecf5?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png",
+      "id": 364390
+    },
+    "html_url": "https://gist.github.com/950389",
+    "id": "950389",
+    "created_at": "2011-05-01T10:11:11Z"
+  },
+  {
+    "url": "https://api.github.com/gists/652024",
+    "description": "With GNU sed, add LANG=en.UTF-8 to git-filter-branch to allow author names and email addresses to contain non-ASCII characters.",
+    "public": true,
+    "files": {
+      "Teach git-filter-branch about UTF-8.": {
+        "type": "text/plain",
+        "raw_url": "https://gist.github.com/raw/652024/4c8f5b2e97ed11571762cb157592c27f27adabc0/Teach git-filter-branch about UTF-8.",
+        "size": 12173,
+        "filename": "Teach git-filter-branch about UTF-8.",
+        "language": null
+      }
+    },
+    "git_pull_url": "git://gist.github.com/652024.git",
+    "git_push_url": "git@gist.github.com:652024.git",
+    "comments": 0,
+    "updated_at": "2010-10-28T18:41:11Z",
+    "user": {
+      "url": "https://api.github.com/users/richardkmichael",
+      "gravatar_id": "5eba6ac30f44c1cb14256848f95aecf5",
+      "login": "richardkmichael",
+      "avatar_url": "https://secure.gravatar.com/avatar/5eba6ac30f44c1cb14256848f95aecf5?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png",
+      "id": 364390
+    },
+    "html_url": "https://gist.github.com/652024",
+    "id": "652024",
+    "created_at": "2010-10-28T18:41:11Z"
+  }
+]
