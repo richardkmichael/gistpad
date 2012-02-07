@@ -1,0 +1,7 @@
+- gists = [ { 'id' => 1 }, { 'id' => 2 }, { 'id' => 3 } ]
+%ul.gists
+  - gists.each do |gist|
+    %li
+      = gist.class
+      %a{ :href => "https://gist.github.com/#{gist['id']}" }= "gist: #{gist['id']}"
+      %span.description= gist['description']

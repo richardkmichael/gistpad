@@ -1,0 +1,36 @@
+<html>
+
+  <head>
+    <title>Load Etherpad</title>
+    <script type='text/javascript' src='/jquery-1.7.1.min.js'></script>
+    <script type='text/javascript' src='/load-etherpad.js'></script>
+  </head>
+
+  <body>
+
+    <div id='p-container'>
+
+      <button id='add_p'>Add Text</button>
+      <button id='del_p'>Delete Text</button>
+
+    </div>
+
+    <div>
+
+      <button id='wikipedia'>Wikipedia</button>
+      <button id='example-org'>Example.org</button>
+
+    </div>
+
+    <iframe id='etherpad' height='350' width='400' src='http://wikipedia.org' scrolling='no' frameborder='0'>
+      No iframe support
+    </iframe>
+
+    <iframe id='etherpad' height='350' width='400' scrolling='no' frameborder='0'
+            src='http://localhost:9001/'>
+      No iframe support
+    </iframe>
+
+  </body>
+
+</html>

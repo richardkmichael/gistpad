@@ -1,7 +1,11 @@
 require 'sinatra'
 require 'haml'
+require 'pry'
 
 require_relative 'lib/gist'
+
+# Move to passenger's default port for convenience.
+set :port, 3000
 
 # before
 #   github oauth
@@ -17,7 +21,8 @@ get %r|/(\d+)$| do |id|
 
 end
 
-get '/:username' do |username|
+# Only requests with word characters, e.g. avoids public files and favicon.ico.
+get %r|/(\w+)$| do |username|
 
   gists = gists_for_username(username)
 
@@ -31,6 +36,12 @@ private
 def gists_for_username( username )
   response = Typhoeus::Request.get("#{Gist::GITHUB_API_URL}/users/#{username}/gists",
                                    :headers => { :Accept => Gist::GITHUB_MIMETYPE })
+
+  # g = JSON::parse(response.body)
+  # binding.pry
+  # puts "DEBUG1: #{g.class}"
+  # puts "DEBUG1: #{g.first.class}"
+  # g
 
   JSON::parse(response.body)
 end
