@@ -4,7 +4,7 @@ require 'pry'
 
 require_relative 'lib/gist'
 
-# Move to passenger's default port for convenience.
+# Run on passenger's port for tmp/always_restart.txt development convenience.
 set :port, 3000
 
 # before
@@ -53,21 +53,17 @@ __END__
   %head
     %title EtherGist!
     %link{ :href => '/github.css', :type => 'text/css', :rel => 'stylesheet' }
+    %script{ :src => '/ether-gist.js', :type => 'text/javascript' }
+
   %body
     .etherpad
-      %iframe{:frameborder => "0",
+      %iframe#etherpad{:frameborder => "0",
               :scrolling => "no",
               :height => '850',
               :width => '650',
               :src => "/choose-a-gist.png"} Your browser does not support iframes.
-      -# %img{ :src => '/choose-a-gist.png' }
 
     .gists= yield
-
-
-@@ gist
--# Create etherpad, embed in iframe?
-%pre= gist.content
 
 
 @@ username
@@ -77,9 +73,9 @@ __END__
 %ul.gists
   - gists.each do |gist|
     %li
-      = gist.class
+      %img.gist-paste{ :src => 'http://gists.github.com/images/gist/gist/paste.png',
+                       :onclick => "createGistPad(#{gist['id']})" }
       %a{ :href => "https://gist.github.com/#{gist['id']}" }= "gist: #{gist['id']}"
-      -# %a{ :href => "https://gist.github.com/123456" } gist: 123456
       %span.description= gist['description']
       %small
         created
@@ -90,6 +86,8 @@ __END__
 %ul.gists
   - gists.each do |gist|
     %li
+      %img.gist-paste{ :src => 'http://gists.github.com/images/gist/gist/paste.png',
+                       :onclick => "createGistPad(#{gist['id']})" }
       %a{:href => "/dbcd90016aba8e6d0f96"} gist: dbcd90...
       %span.description
       %small
