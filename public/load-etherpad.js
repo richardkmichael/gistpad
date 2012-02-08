@@ -66,120 +66,87 @@ var go = function(){
 
   // ----------------------- Etherpad changes ---------------------
 
-  var etherpadKey    = 'EVH6mE9T0LloynagajpPaXpRzPWKlUyJ';
-  var etherpadHost   = 'http://localhost:9001';
-  var etherpadAuthor = 'Michael';
+  var etherpadRequest = function(url) {
+    var request = new XMLHttpRequest();
+    request.open('GET', url, false);     // false = not async
+    request.send(null);                  // null  = no body needed
 
-  var url = etherpadHost   + '/api/1/createAuthorIfNotExistsFor?apikey=' +
-            etherpadKey    + '&name=' +
-            etherpadAuthor + 'Michael&authorMapper=7';
+    console.log('Debug: ' + request.responseText);
 
-  var request = new XMLHttpRequest();
-  request.open('GET', url, false); // false = not async
-  request.send(null); // null = no body needed
-
-  if (request.status == 200) {
-    console.log(request.responseText)
-
-    var response = eval('(' + request.responseText + ')');
-    var author = response.data.authorID;
+    if (request.status == 200) {
+      return eval('(' + request.responseText + ')');
+    } else {
+      return new Object;
+    };
   };
+
+  var apiKey       = 'EVH6mE9T0LloynagajpPaXpRzPWKlUyJ',
+      etherpadHost = 'http://localhost:9001',
+      authorName   = 'Michael',                     // GitHub username?
+      padName      = 'samplePad-7',                 // Gist commit SHA1?
+      padContent   = 'Test content for etherpad.',  // Gist commit content.
+      sessionExpiry = '1328979927';                 // 1 day?
+
+  // Create an author.  TODO: Check if exists.
+  var url = etherpadHost + '/api/1/createAuthorIfNotExistsFor' +
+            '?apikey='   + apiKey +
+            '&name='     + authorName +
+            '&authorMapper=7';
+
   // {code: 0, message:"ok", data: {authorID: "a.s8oes9dhwrvt0zif"}}
+  var author = etherpadRequest(url).data.authorID;
 
 
-  // http://pad.domain/api/1/createGroupIfNotExistsFor?apikey=secret&groupMapper=7
-  var url = etherpadHost   + '/api/1/createGroupIfNotExistsFor?apikey=' +
-            etherpadKey    + '&groupMapper=7';
+  // Create a group.  TODO: Check if exists.
+  var url = etherpadHost + '/api/1/createGroupIfNotExistsFor' +
+            '?apikey='   + apiKey +
+            '&groupMapper=7';
 
-
-  var request = new XMLHttpRequest();
-  request.open('GET', url, false); // false = not async
-  request.send(null); // null = no body needed
-
-  if (request.status == 200) {
-    console.log(request.responseText);
-
-    var response = eval('(' + request.responseText + ')');
-    var group = response.data.groupID;
-  };
   // {code: 0, message:"ok", data: {groupID: "g.s8oes9dhwrvt0zif"}}
+  var group = etherpadRequest(url).data.groupID;
 
 
-
-  // http://pad.domain/api/1/createGroupPad?apikey=secret&groupID=g.s8oes9dhwrvt0zif&padName=samplePad&text=This is the first sentence in the pad
-  var content = 'Test content for etherpad.';
-  var padName = 'samplePad-2';
+  // Create the etherpad.  TODO: Check if exists.
   var url = etherpadHost + '/api/1/createGroupPad' +
-            '?apikey='   + etherpadKey +
+            '?apikey='   + apiKey +
             '&groupID='  + group +
             '&padName='  + padName +
-            '&text='     + content;
-
-
-  // TODO: Handle duplicate pads - listPad first, or delete.
-  var request = new XMLHttpRequest();
-  request.open('GET', url, false); // false = not async
-  request.send(null); // null = no body needed
-
-  if (request.status == 200) {
-    console.log('DEBUG1: ' + request.responseText)
-
-    var response = eval('(' + request.responseText + ')');
-    var pad = response.data.padID;
-    console.log('DEBUG2: ' + pad);
-  };
+            '&text='     + padContent;
 
   // {code: 0, message:"ok", data: null}
+  var pad = etherpadRequest(url).data.padID;
 
-  // http://pad.domain/api/1/createSession?apikey=secret&amp;groupID=g.s8oes9dhwrvt0zif&amp;authorID=a.s8oes9dhwrvt0zif&amp;validUntil=1312201246
-  var expiry = '1328979927';
+
+  // Create the session.  TODO: Check if exists?
   var url = etherpadHost   + '/api/1/createSession' +
-            '?apikey='     + etherpadKey +
+            '?apikey='     + apiKey +
             '&groupID='    + group +
             '&authorID='   + author +
-            '&validUntil=' + expiry;
+            '&validUntil=' + sessionExpiry;
 
-  var request = new XMLHttpRequest();
-  request.open('GET', url, false); // false = not async
-  request.send(null); // null = no body needed
+  var session = etherpadRequest(url).data.sessionID;
 
-  if (request.status == 200) {
-    console.log(request.responseText)
 
-    var response = eval('(' + request.responseText + ')');
-    var session = response.data.sessionID;
-  };
+  // Set the document cookie.
+  document.cookie = 'sessionID=' + session;
 
-  // List pads.
-  // http://pad.domain/api/1/listPads?apikey=secret&groupID=g.s8oes9dhwrvt0zif
+
+  // Update the etherpad iframe to point to the new etherpad.
+  var url = etherpadHost + '/p/' + pad;
+  document.getElementById('etherpad').setAttribute('src', url);
+
+
+/*
+
+  // Create a list of etherpads in this group.
   var url = etherpadHost   + '/api/1/listPads' +
             '?apikey='     + etherpadKey +
             '&groupID='    + group;
 
-  var request = new XMLHttpRequest();
-  request.open('GET', url, false); // false = not async
-  request.send(null); // null = no body needed
+  var padIDs = etherpadRequest(url).data.padIDs;
 
-  if (request.status == 200) {
-    console.log(request.responseText)
+*/
 
-    var response = eval('(' + request.responseText + ')');
-    var pads = response.data.padIDs;
-    console.log(pads);
-    for (i = 0 ; i < pads.length ; i++) {
-      console.log('Pads ' + i + ":" + pads[i]);
-    };
-  };
-
-
-  document.cookie = 'sessionID=' + session;
-  console.log(document.cookie);
-
-  // {"data":{"sessionID": "s.s8oes9dhwrvt0zif"}}
-
-  var etherpad = document.getElementById('etherpad');
-  var padurl = etherpadHost + '/p/' + pad;
-  etherpad.setAttribute('src', padurl);
 
 };
 
