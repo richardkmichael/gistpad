@@ -1,14 +1,29 @@
 h1. EtherGist
 
-Retreive a Gist
-  -GitHub API for Gist
-    -raw URL
+EtherGist shows you a list of your recent Gists and allows you to edit
+them in an EtherPad session.  You can collaborate with other developers
+using the EtherPad session, and save the Gist back to GitHub when done.
 
-Populate etherpad with the content.
-  -raw content
+h1. Issues
 
 Obey syntax highlighting of Gist type?
 
-GitHub oauth
-  -allow post back
-  -allow private
+OAuth to GitHub to allow gist update and private gists
+
+"Choose a Gist" image replacement
+
+Pad cleanup / expiration
+
+Disconnect bug on use of "Direct Link"?
+
+Use a client-side Gist object? (Merge w/ Github API JS bindings project?)
+
+How should collaboration work?  Give the direct link?
+
+h1. Architecture Issues
+
+Where is the split between server-side (Ruby to GitHub) v. client-side (JS to GitHub)?
+
+* ex. Live gist list updating?
+* ex. Gist content retrieval and saving is client-side
+* ex. Server-side also retrieves Gists; send them as JSON to the client?

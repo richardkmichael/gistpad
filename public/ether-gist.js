@@ -164,6 +164,12 @@ function createGistPad(gistId) {
   // Update the etherpad iframe to point to the new etherpad.
   document.getElementById('etherpad').setAttribute('src', url);
 
+  // Update the document with a dedicated link.
+  a = document.createElement('a');
+  a.setAttribute('href', url);
+  a.innerText = url;
+
+  document.getElementById('etherpad-link').appendChild(a);
 };
 
 var apiKey        = 'EVH6mE9T0LloynagajpPaXpRzPWKlUyJ',

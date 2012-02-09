@@ -56,6 +56,9 @@ __END__
     %script{ :src => '/ether-gist.js', :type => 'text/javascript' }
 
   %body
+    #etherpad-link
+      Direct link:
+
     .etherpad
       %iframe#etherpad{:frameborder => "0",
               :scrolling => "no",
@@ -81,16 +84,3 @@ __END__
         created
         %span.date
           %time.js-relative-date{ :datetime => gist['updated_at'], :title => gist['updated_at'] }= gist['updated_at']
-
-%h3 Your Recent Starred Gists
-%ul.gists
-  - gists.each do |gist|
-    %li
-      %img.gist-paste{ :src => 'http://gists.github.com/images/gist/gist/paste.png',
-                       :onclick => "createGistPad(#{gist['id']})" }
-      %a{:href => "/dbcd90016aba8e6d0f96"} gist: dbcd90...
-      %span.description
-      %small
-        created
-        %span.date
-          %time.js-relative-date{:datetime => "2012-01-28T16:28:49-08:00", :title => "2012-01-28 16:28:49"} January 28, 2012
