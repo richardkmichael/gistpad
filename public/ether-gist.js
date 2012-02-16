@@ -7,6 +7,10 @@
 //   5/ Delete pads!
 //   6/ username = GitHub username.
 //   7/ Session expiration.
+//   8/ escape() is non-standard (but widly adopted).  What to do?
+//   9/ "use strict"; should be in a function which wraps the script.
+
+"use strict";
 
 function debugObject(object) {
 
@@ -16,17 +20,17 @@ function debugObject(object) {
   for (var prop in object) {
     if (object.hasOwnProperty(prop)) {
       console.log('Debug Object: (prop) ' + prop + ' = ' + object[prop]);
-    };
-  };
+    }
+  }
 
-};
+}
 
 function gistCallback(response) {
 
-  // TODO: These variables need to leave this scope.
+  // TODO: These need to be available outside this scope.
   var meta = response.meta;
   var data = response.data;
-};
+}
 
 function gistContent(gistId) {
 
@@ -45,9 +49,9 @@ function gistContent(gistId) {
   // Return the file content; empty string if there was no file or request failed.
   var content = '';
 
-  if (gitHubRequest.status == 200) {
+  if (gitHubRequest.status === 200) {
 
-    gist = eval('(' + gitHubRequest.responseText + ')');
+    var gist = JSON.parse(gitHubRequest.responseText); // eval('(' + gitHubRequest.responseText + ')');
 
     // We can't know the name of the file(s) in the gist, so use the first one.
     for (var filename in gist.files) {
@@ -55,14 +59,14 @@ function gistContent(gistId) {
       if (gist.files.hasOwnProperty(filename)) {
         content = gist.files[filename].content;
         break; // Break because we want the first element.
-      };
+      }
 
-    };
-  };
+    }
+  }
 
   return content;
 
-};
+}
 
 function etherpadRequest(url) {
   // Returns an object, eval'd from the response JSON.
@@ -72,13 +76,13 @@ function etherpadRequest(url) {
   request.open('GET', url, false);     // false = not async
   request.send(null);                  // null  = no body needed
 
-  if (request.status == 200) {
-    return eval('(' + request.responseText + ')');
+  if (request.status === 200) {
+    return JSON.parse(request.responseText); // eval('(' + request.responseText + ')');
   } else {
-    return new Object;
-  };
+    return {}; // new Object();
+  }
 
-};
+}
 
 function createGroupPad(group, padName, padContent) {
 
@@ -92,20 +96,20 @@ function createGroupPad(group, padName, padContent) {
 
   var pad = etherpadRequest(url);
 
-  if (pad.code == 0 && pad.message == 'ok') {
+  if (pad.code === 0 && pad.message === 'ok') {
 
     return pad.data.padID;        // Pad created. TODO: API says this should be null!
 
-  } else if (pad.code == 1 && pad.message == 'padName does already exist') {
+  } else if (pad.code === 1 && pad.message === 'padName does already exist') {
 
     return group + '$' + padName; // Pad exists. API says name format is 'GROUPID$PADNAME'.
 
   } else {
 
     return null;
-  };
+  }
 
-};
+}
 
 function createAuthor(authorName) {
 
@@ -118,7 +122,7 @@ function createAuthor(authorName) {
 
   return etherpadRequest(url).data.authorID;
 
-};
+}
 
 function createGroup() {
 
@@ -130,7 +134,7 @@ function createGroup() {
 
   return etherpadRequest(url).data.groupID;
 
-};
+}
 
 function createSession(group, author, expiry) {
 
@@ -144,7 +148,7 @@ function createSession(group, author, expiry) {
 
   return etherpadRequest(url).data.sessionID;
 
-};
+}
 
 function createGistPad(gistId) {
 
@@ -165,14 +169,17 @@ function createGistPad(gistId) {
   document.getElementById('etherpad').setAttribute('src', url);
 
   // Update the document with a dedicated link.
-  a = document.createElement('a');
+  var a = document.createElement('a');
   a.setAttribute('href', url);
   a.innerText = url;
 
   document.getElementById('etherpad-link').appendChild(a);
-};
+}
 
 var apiKey        = 'EVH6mE9T0LloynagajpPaXpRzPWKlUyJ',
     etherpadHost  = 'http://localhost:9001',
     authorName    = 'Michael',
     sessionExpiry = '1328979927';
+
+
+// use strict
