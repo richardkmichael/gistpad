@@ -1,8 +1,6 @@
-h1. EtherGist
+h1. GistPad
 
-EtherGist shows you a list of your recent Gists and allows you to edit
-them in an EtherPad session.  You can collaborate with other developers
-using the EtherPad session, and save the Gist back to GitHub when done.
+GistPad shows you a list of your recent Gists and allows you to edit them in an EtherPad session.  You can collaborate with other developers using the EtherPad session, and save the Gist back to GitHub when done.
 
 h1. Issues
 
