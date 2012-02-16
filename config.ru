@@ -1,3 +1,3 @@
-require './ether-gist'
+require './gistpad'
 
 run Sinatra::Application

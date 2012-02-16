@@ -53,7 +53,7 @@ __END__
   %head
     %title EtherGist!
     %link{ :href => '/github.css', :type => 'text/css', :rel => 'stylesheet' }
-    %script{ :src => '/ether-gist.js', :type => 'text/javascript' }
+    %script{ :src => '/gistpad.js', :type => 'text/javascript' }
 
   %body
     #etherpad-link
