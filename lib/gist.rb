@@ -31,6 +31,7 @@ class Gist
   #   @json['files'] || {}
   # end
 
+  # FIXME: Use a deep .fetch
   def content
     if files = @json['files']
       files[files.keys.first]['content']
